@@ -1,6 +1,10 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
+import './plugins/axios'
 import App from './App.vue'
 import router from './router'
+
+Vue.config.productionTip = false
+
 
 // 全局样式
 import '@/assets/css/details.css'
@@ -14,4 +18,7 @@ import '@/assets/css/swiper.css'
 import '@/assets/css/user_center.css'
 import '@/assets/css/user_pay.css'
 
-createApp(App).use(router).mount('#app')
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount('#app')

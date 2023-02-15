@@ -1,10 +1,20 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Index from '../views/index.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
+
+// import HomeView from '../views/HomeView.vue'
+
+/* 导入组件 */
+import Index from '../views/Index.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
-  
-  
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: HomeView
+  // },
   // {
   //   path: '/about',
   //   name: 'about',
@@ -17,11 +27,10 @@ const routes = [
     path: '/',
     name: 'Index',
     component: Index
-  },
+  }
 ]
 
-const router = createRouter({
-  history: createWebHashHistory(),
+const router = new VueRouter({
   routes
 })
 
