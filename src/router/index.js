@@ -1,13 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Index from '../views/index.vue'
+
 
 const routes = [
   
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
+  
   // {
   //   path: '/about',
   //   name: 'about',
@@ -16,6 +13,11 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   // }
+  {
+    path: '/',
+    name: 'Index',
+    component: Index
+  },
 ]
 
 const router = createRouter({
