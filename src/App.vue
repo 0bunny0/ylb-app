@@ -8,5 +8,7 @@
 </template>
 
 <style>
-
+.abc{
+  color: #000;
+}
 </style>
