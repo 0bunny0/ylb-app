@@ -52,8 +52,8 @@
 		},
 		data(){
 			return{
-				phone:"13800000000",
-				loginPassword:"123456a",
+				phone:"13537295787",
+				loginPassword:"a123456",
 				code:"000000",
 				yzmText:"获取验证码"
 			}
@@ -105,7 +105,7 @@
 								path:srcUrl
 							})
 						}else{
-							/* 路由到登录 */
+							/* 路由到首页 */
 							this.$router.push({
 								path:"/",
 								query:{}
