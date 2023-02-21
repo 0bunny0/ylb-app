@@ -29,7 +29,7 @@ axios.interceptors.request.use(function(request){
 	console.log("前端请求拦截器")
 	
 	//修改请求头
-	if('/api/v1/user/info'==request.url){//可以设置特定的请求 携带token  也可以 不写if 让所有请求都携带token
+	//if('/api/v1/user/info'==request.url){//可以设置特定的请求 携带token  也可以 不写if 让所有请求都携带token
 		/* 会话存储中是否有token */
 		if(window.sessionStorage.getItem('accessToken')){
 			let token = window.sessionStorage.getItem('accessToken');
@@ -39,7 +39,7 @@ axios.interceptors.request.use(function(request){
 			let uid = userInfo.uid;
 			request.headers['uid']=uid;
 		}
-	}
+	//}
 	// 返回请求对象
 	return request;
 },function(err){
