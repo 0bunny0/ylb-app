@@ -127,7 +127,7 @@
 				<li v-for="(item,i) in sanBiao" :key="i">
 					<h3 class="preferred-select-title1">
 						{{item.productName}}
-						<span>散标</span>
+						<!-- <span>散标</span> -->
 					</h3>
 					<div class="preferred-select-number">
 						<p><b>{{item.rate}}</b>%</p>

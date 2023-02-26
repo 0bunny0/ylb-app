@@ -5,12 +5,14 @@
 		<div class="content clearfix">
 			<!--排行榜-->
 			<ul class="rank-list">
-				<li>
-					<img src="@/assets/image/list-rank1.png" alt="">
-					<p class="rank-list-phone">13704213870</p>
-					<span>150000.0元</span>
+				<li v-for="(item,i) in rankList" :key="i">
+					<img src="@/assets/image/list-rank1.png" alt="" v-if="i == 0">
+					<img src="@/assets/image/list-rank2.png" alt="" v-if="i == 1">
+					<img src="@/assets/image/list-rank3.png" alt="" v-if="i == 2">
+					<p class="rank-list-phone">{{item.phone}}</p>
+					<span>{{item.bidMoney}}元</span>
 				</li>
-				<li>
+				<!-- <li>
 					<img src="@/assets/image/list-rank2.png" alt="">
 					<p class="rank-list-phone">13704213880</p>
 					<span>90000.0元</span>
@@ -19,7 +21,7 @@
 					<img src="@/assets/image/list-rank3.png" alt="">
 					<p class="rank-list-phone">13704213890</p>
 					<span>2000.0元</span>
-				</li>
+				</li> -->
 			</ul>
 			<!--产品列表-->
 			<ul class="preferred-select clearfix">
@@ -104,6 +106,10 @@
 					pageSize: 0,
 					totalRows: 0,
 					totalPages: 0
+				},
+				rankList:{
+					phone:"",
+					bidMoney:0
 				}
 			}
 		},
@@ -116,6 +122,7 @@
 					query:params
 				})
 			},
+
 			initPageData(pageNo){
 				/* 获取路由传递的参数 */
 				// ? 表单传参 query
@@ -123,14 +130,14 @@
 				let ltype = this.$route.query.type
 				this.axios.get('/api/v1/product/type', {
 					params:{
-						type: ltype,
+						ltype: ltype,
 						pageSize:9,
 						pageNo:pageNo
 					}
 				}).then(resp => {
 					this.loanList = resp.data.list;
 					console.log(this.loanList);
-					this.pageInfo = resp.data.pageInfo
+					this.pageInfo = resp.data.object;
 					console.log(this.pageInfo);
 				})
 			},
@@ -166,6 +173,12 @@
 		},
 		mounted() {
 			this.initPageData(1)
+			this.axios.get('/api/v1/product/ranklist').then(resp=>{
+				if(resp){
+					this.rankList = resp.data.list;
+					console.log(this.rankList)
+				}
+			})
 		}
 	}
 </script>
